@@ -21,7 +21,6 @@ if [ $# -eq 0 ]
         exit 1
     fi
 fi
-cd contrib; git reset --hard &> /dev/null; git pull &> /dev/null; cd ..;
 latest_stable_kubernetes_commit="`git rev-list v${latest_stable_kubernetes_version}  | head -n 1`"
 short_commit=`echo $latest_stable_kubernetes_commit | cut -c1-7`
 cd ..;

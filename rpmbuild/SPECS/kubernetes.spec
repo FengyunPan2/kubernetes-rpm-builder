@@ -14,7 +14,7 @@
 %global _checkshell	/bin/bash
 
 Name:		kubernetes
-Version:        1.3.3
+Version:        1.5.1
 Release:	git%{shortcommit}%{?dist}
 Summary:	Container cluster management
 License:	ASL 2.0
@@ -245,38 +245,13 @@ export KUBE_GIT_TREE_STATE="clean"
 export KUBE_GIT_COMMIT=%{commit}
 export KUBE_GIT_VERSION=1.3.3
 
-%if 0%{?fedora}
-#export KUBE_GIT_TREE_STATE="dirty"
-#export KUBE_EXTRA_GOPATH=%{gopath}
-#export KUBE_NO_GODEPS="true"
-%endif
 
-hack/build-go.sh --use_go_build
+hack/build-go.sh 
 
 %check
 #uncomment the exit 0 below to skip tests for build debugging
 #exit 0
 
-%if 0%{?fedora}
-#export KUBE_EXTRA_GOPATH=%{gopath}
-#export KUBE_NO_GODEPS="true"
-%endif
-
-echo "******Testing the commands*****"
-# run the test only if /fs/sys/cgroup is mounted
-if [ -d /sys/fs/cgroup ]; then
-    hack/test-cmd.sh
-fi
-echo "******Benchmarking kube********"
-hack/benchmark-go.sh
-
-# In Fedora 20 and RHEL7 the go cover tools isn't available correctly
-%if 0%{?fedora} >= 21
-echo "******Testing the go code******"
-hack/test-go.sh
-echo "******Testing integration******"
-#hack/test-integration.sh --use_go_build
-%endif
 
 %install
 
@@ -324,7 +299,7 @@ done
 %endif
 
 %files
-%doc README.md LICENSE CONTRIB.md CONTRIBUTING.md DESIGN.md
+%doc README.md LICENSE CONTRIBUTING.md DESIGN.md
 %{_mandir}/man1/*
 %{_bindir}/kube-apiserver
 %{_bindir}/kubectl
@@ -352,7 +327,7 @@ done
 
 %if 0%{?fedora}
 %files devel
-%doc README.md LICENSE CONTRIB.md CONTRIBUTING.md DESIGN.md
+%doc README.md LICENSE CONTRIBUTING.md DESIGN.md
 %dir %{gopath}/src/%{provider}.%{provider_tld}/%{project}
 %{gopath}/src/%{import_path}
 %endif
