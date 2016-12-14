@@ -299,7 +299,7 @@ done
 %endif
 
 %files
-%doc README.md LICENSE CONTRIBUTING.md DESIGN.md
+%doc README.md LICENSE CONTRIBUTING.md
 %{_mandir}/man1/*
 %{_bindir}/kube-apiserver
 %{_bindir}/kubectl
@@ -327,7 +327,7 @@ done
 
 %if 0%{?fedora}
 %files devel
-%doc README.md LICENSE CONTRIBUTING.md DESIGN.md
+%doc README.md LICENSE CONTRIBUTING.md
 %dir %{gopath}/src/%{provider}.%{provider_tld}/%{project}
 %{gopath}/src/%{import_path}
 %endif
