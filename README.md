@@ -1,7 +1,7 @@
 Build kubernetes rpm binaries
 -------------
 ```bash
-git clone --recursive https://github.com/khogeland/kubernetes-rpm-builder
+git clone --recursive https://github.com/mritd/kubernetes-rpm-builder
 # you must install golang 1.6+ manually; no RPM currently available
 sudo yum install rpm-build etcd
 sudo yum groupinstall "Development Tools"
