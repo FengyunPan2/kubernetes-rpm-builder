@@ -11,5 +11,7 @@ cd kubernetes-rpm-builder
 ```
 
 **准备好 8 核心 16G VPS，半小时时间等着你**
+
 **如果可能请使用国外 VPS，譬如 DigitalOcean 之类的按小时计费的**
+
 **一小时 2 块钱足够编译完，下面是推广时间: [DigitalOcean 邀请链接](https://m.do.co/c/942d5ae7a61c)**
