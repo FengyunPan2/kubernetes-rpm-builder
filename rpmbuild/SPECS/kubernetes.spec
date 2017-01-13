@@ -246,7 +246,7 @@ export KUBE_GIT_COMMIT=%{commit}
 export KUBE_GIT_VERSION=1.3.3
 
 
-hack/build-go.sh 
+hack/build-go.sh --use_go_build 
 
 %check
 #uncomment the exit 0 below to skip tests for build debugging
