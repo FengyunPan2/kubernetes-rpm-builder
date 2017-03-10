@@ -10,10 +10,11 @@ gvm install go1.4 -B
 gvm use go1.4
 gvm install go1.8
 gvm use go1.8 --default
+# clone this repo
 git clone --recursive https://github.com/mritd/kubernetes-rpm-builder
 # you must install golang 1.6+ manually; no RPM currently available
-sudo yum install rpm-build etcd
-sudo yum groupinstall "Development Tools"
+yum install rpm-build etcd
+yum groupinstall "Development Tools"
 # make sure you have ample storage space available, both here and in /tm; 5GB is not enough
 cd kubernetes-rpm-builder
 ./build_latest_stable_kubernetes.sh v1.5.4   # argument is the git tag to build
