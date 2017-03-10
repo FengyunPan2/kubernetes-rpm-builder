@@ -1,13 +1,22 @@
 Build kubernetes rpm binaries
 -------------
 ```bash
+# install gvm
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+source /root/.gvm/scripts/gvm
+# install golang
+yum install bison gcc -y
+gvm install go1.4 -B
+gvm use go1.4
+gvm install go1.8
+gvm use go1.8 --default
 git clone --recursive https://github.com/mritd/kubernetes-rpm-builder
 # you must install golang 1.6+ manually; no RPM currently available
 sudo yum install rpm-build etcd
 sudo yum groupinstall "Development Tools"
 # make sure you have ample storage space available, both here and in /tm; 5GB is not enough
 cd kubernetes-rpm-builder
-./build_latest_stable_kubernetes.sh v1.5.1   # argument is the git tag to build
+./build_latest_stable_kubernetes.sh v1.5.4   # argument is the git tag to build
 ```
 
 **准备好 8 核心 16G VPS，半小时时间等着你**
